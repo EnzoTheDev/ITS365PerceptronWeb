@@ -1,2 +1,2 @@
-packages = ["numpy"]
+packages = ["pandas", "matplotlib","numpy"]
 plugins = []

@@ -1,11 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perceptron Web Deployment</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./styles/XP.css">
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
 </head>
 <body>
-    
+
+    <div>Enter the 4x4 grid values:</div>
+
+    <table border="1">
+        <tbody>
+            <script>
+                document.write("<tr>");
+                for (let i = 0; i < 16; i++) {
+                    if (i % 4 === 0 && i !== 0) document.write("</tr><tr>");
+                    document.write(`
+                        <td>
+                            <select id="cell${i}" class="dropdown">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                            </select>
+                        </td>
+                    `);
+                }
+                document.write("</tr>");
+            </script>
+        </tbody>
+    </table>
+
+    <button id="generate">Generate</button>
+
+    <p>Prediction: <span id="predictionResult">Waiting...</span></p>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            console.log("PyScript is loading...");
+
+            document.getElementById("generate").addEventListener("click", async function () {
+                let values = [];
+                for (let i = 0; i < 16; i++) {
+                    values.push(document.getElementById(`cell${i}`).value);
+                }
+                let valuesString = values.join(",");
+
+                try {
+                    await pyscript.run(`predictPython("${valuesString}")`);
+                } catch (error) {
+                    console.error("PyScript Error:", error);
+                }
+            });
+        });
+    </script>
+
+    <py-config>
+        packages = ["numpy"]
+    </py-config>
+
+    <py-script>
+        import numpy as np
+        from pyscript import display
+
+        weights = np.array([0.0, 0.01, 0.02, 0.01, 
+                            -0.01, 0.0, 0.01, 0.0, 
+                            -0.01, 0.0, 0.01, 0.0, 
+                            -0.01, -0.01, -0.01, -0.01])
+        bias = 0.0
+
+        def activation_function(x):
+            return np.where(x >= 0, 1, 0)
+
+        def predict(sample):
+            linear_output = np.dot(sample, weights) + bias
+            return activation_function(linear_output)
+
+        def predictPython(values_string):
+            """Processes JS grid input and updates the prediction result."""
+            try:
+                sample = np.array([int(x) for x in values_string.split(",")])  # Convert to NumPy array
+                prediction = predict(sample)
+                result = "T" if prediction == 1 else "L"
+                display(result, target="predictionResult")  # Update output field
+            except Exception as e:
+                display(f"Error: {e}", target="predictionResult")
+
+    </py-script>
+
 </body>
 </html>

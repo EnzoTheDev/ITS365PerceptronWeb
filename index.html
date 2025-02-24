@@ -1,91 +1,248 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Perceptron Web Deployment</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="./styles/XP.css">
-    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
-</head>
-<body>
+<html>   
+    
+    <head>
+        <title>First Numpy Example</title>
+        <meta charset="utf-8" />
+        <!--   <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />    -->
+        <!--     <script defer src="https://pyscript.net/latest/pyscript.js"></script>     -->
+       <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+        <!-- CSS for examples -->
+        
+         <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
 
-    <div>Enter the 4x4 grid values:</div>
+    </head>
 
-    <table border="1">
-        <tbody>
-            <script>
-                document.write("<tr>");
-                for (let i = 0; i < 16; i++) {
-                    if (i % 4 === 0 && i !== 0) document.write("</tr><tr>");
-                    document.write(`
-                        <td>
-                            <select id="cell${i}" class="dropdown">
-                                <option value="0">0</option>
-                                <option value="1">1</option>
-                            </select>
-                        </td>
-                    `);
-                }
-                document.write("</tr>");
-            </script>
-        </tbody>
-    </table>
+    <body>
+    <div>Input your data here: </div>
+    <table>
+     <tr>
+     <td>x1 </td>
+     <td> 
+         <select id ="Input1">
+            <option value="1">1</option>
+            <option value="0">0</option>
+         </select>
+    </td>
 
-    <button id="generate">Generate</button>
+     <td> x2 </td>
+     <td> 
+        <select id ="Input2">
+            <option value="1">1</option>
+            <option value="0">0</option>
+         </select>
+     </td>
 
-    <p>Prediction: <span id="predictionResult">Waiting...</span></p>
+     <td> x3 </td>
+     <td> 
+        <select id ="Input3">
+            <option value="1">1</option>
+            <option value="0">0</option>
+         </select>
+     </td>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            console.log("PyScript is loading...");
+     <td> x4 </td>
+     <td> 
+        <select id ="Input4">
+            <option value="1">1</option>
+            <option value="0">0</option>
+         </select>
+     </td>
+     </tr>
 
-            document.getElementById("generate").addEventListener("click", async function () {
-                let values = [];
-                for (let i = 0; i < 16; i++) {
-                    values.push(document.getElementById(`cell${i}`).value);
-                }
-                let valuesString = values.join(",");
+     <tr>
+     <td> x5 </td>
+     <td> 
+        <select id ="Input5">
+            <option value="1">1</option>
+            <option value="0">0</option>
+         </select>
+     </td>
 
-                try {
-                    await pyscript.run(`predictPython("${valuesString}")`);
-                } catch (error) {
-                    console.error("PyScript Error:", error);
-                }
-            });
-        });
-    </script>
+     <td> x6 </td>
+     <td> 
+        <select id ="Input6">
+            <option value="1">1</option>
+            <option value="0">0</option>
+         </select>
+     </td>
 
-    <py-config>
-        packages = ["numpy"]
-    </py-config>
+     <td> x7 </td>
+     <td> 
+        <select id ="Input7">
+            <option value="1">1</option>
+            <option value="0">0</option>
+         </select>
+     </td>
 
-    <py-script>
-        import numpy as np
-        from pyscript import display
+     <td> x8 </td>
+     <td> 
+        <select id ="Input8">
+            <option value="1">1</option>
+            <option value="0">0</option>
+         </select>
+     </td>
+     </tr>
 
-        weights = np.array([0.0, 0.01, 0.02, 0.01, 
-                            -0.01, 0.0, 0.01, 0.0, 
-                            -0.01, 0.0, 0.01, 0.0, 
-                            -0.01, -0.01, -0.01, -0.01])
-        bias = 0.0
+     <tr>
+     <td> x9 </td>
+     <td> 
+        <select id ="Input9">
+            <option value="1">1</option>
+            <option value="0">0</option>
+         </select>
+     </td>
 
-        def activation_function(x):
-            return np.where(x >= 0, 1, 0)
+     <td> x10 </td>
+     <td> 
+        <select id ="Input10">
+            <option value="1">1</option>
+            <option value="0">0</option>
+         </select>
+     </td>
 
-        def predict(sample):
-            linear_output = np.dot(sample, weights) + bias
-            return activation_function(linear_output)
+     <td> x11 </td>
+     <td> 
+        <select id ="Input11">
+            <option value="1">1</option>
+            <option value="0">0</option>
+         </select>
+     </td>
 
-        def predictPython(values_string):
-            """Processes JS grid input and updates the prediction result."""
-            try:
-                sample = np.array([int(x) for x in values_string.split(",")])  # Convert to NumPy array
-                prediction = predict(sample)
-                result = "T" if prediction == 1 else "L"
-                display(result, target="predictionResult")  # Update output field
-            except Exception as e:
-                display(f"Error: {e}", target="predictionResult")
+     <td> x12 </td>
+     <td> 
+        <select id ="Input12">
+            <option value="1">1</option>
+            <option value="0">0</option>
+         </select>
+     </td>
+     </tr>
 
-    </py-script>
+     <tr>
+     <td> x13 </td>
+     <td> 
+        <select id ="Input13">
+            <option value="1">1</option>
+            <option value="0">0</option>
+         </select>
+     </td>
 
-</body>
+     <td> x14 </td>
+     <td> 
+        <select id ="Input14">
+            <option value="1">1</option>
+            <option value="0">0</option>
+         </select>
+     </td>
+
+     <td> x15 </td>
+     <td> 
+        <select id ="Input15">
+            <option value="1">1</option>
+            <option value="0">0</option>
+         </select>
+     </td>
+
+     <td> x16 </td>
+     <td> 
+        <select id ="Input16">
+            <option value="1">1</option>
+            <option value="0">0</option>
+         </select>
+     </td>
+
+
+     
+
+     </tr>
+     </table>
+        
+     <button id="get-time" py-click="my_gen_function"  class="py-button">Generate</button>
+     <button id="get-time" py-click="my_gen_function">Generate</button>
+
+     <div id="test-output">
+         
+     </div>
+
+        <section class="pyscript"> 
+            <div id="mpl"></div>
+
+          
+
+                <script type="py" config="pyscript.toml">
+                
+                    import numpy as np
+                    import pandas as pd
+                    import matplotlib.pyplot as plt
+                    import matplotlib.tri as tri
+                    from pyodide.http import open_url
+                    from pyscript import display
+                    from pyweb import pydom
+                    
+                    weights = np.array([ 0.  ,  0.01 , 0.02 , 0.01 ,-0.01 , 0.  ,  0.01 , 0. ,  -0.01,  0.  ,  0.01 , 0.,-0.01, -0.01, -0.01 ,-0.01])  
+                    bias = 0.0 
+
+                    def activation_function(x):
+                        return np.where(x >= 0, 1, 0)
+
+                    
+                    def predict(sample):
+                        linear_output = np.dot(sample, weights) + bias
+                        return activation_function(linear_output)
+                    #############################################################################
+
+                    def euclidean_distance(v1, v2):
+                        return np.sqrt( np.sum(   (v1 - v2)**2   )   )
+
+                    #############################################################################
+
+
+
+                    #####################################################################
+
+                 
+                    #####################################################################
+
+                    #####################################################################
+                    ######################################################################
+
+                    def get_np_conditions_vector():
+                        c1 = float( pydom["#testInput1"][0].value )
+                        c2 = float( pydom["#testInput2"][0].value )
+                        c3 = float( pydom["#testInput3"][0].value )
+                        c4 = float( pydom["#testInput4"][0].value )
+                        c5 = float( pydom["#testInput5"][0].value )
+                        c6 = float( pydom["#testInput6"][0].value )
+                        c7 = float( pydom["#testInput7"][0].value )
+                        c8 = float( pydom["#testInput8"][0].value )
+                        c9 = float( pydom["#testInput9"][0].value )
+                        c10 = float( pydom["#testInput10"][0].value )
+                        c11 = float( pydom["#testInput11"][0].value )
+                        c12 = float( pydom["#testInput12"][0].value )
+                        c13 = float( pydom["#testInput13"][0].value )
+                        c14 = float( pydom["#testInput14"][0].value )
+                        c15 = float( pydom["#testInput15"][0].value )
+                        c16 = float( pydom["#testInput16"][0].value )
+
+                       
+                        conditions_list = [c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15, c16]
+                        np_conditions_list = np.array(conditions_list)
+                        np_conditions_list = np.expand_dims(np_conditions_list, axis=0)
+
+                        return np_conditions_list
+
+                    ######################################################################
+
+                    def my_gen_function(event):
+                        test_x = get_np_conditions_vector()
+                        the_pred = predict(test_x)
+                        text1 = np.array2string( test_x , precision=2, separator=',', suppress_small=True)
+                        text3 = str( the_pred )
+                        accum_res = "*******************\n" + "Predicted Class: " + text1 + "___"  + text3 + "\n"
+                        ## pydom['mpl'].content =  accum_res
+                        pydom["div#mpl"].html = accum_res
+                    
+ 
+                </script>
+        </section>
+    </body>
 </html>

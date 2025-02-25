@@ -176,10 +176,23 @@
      <!--<button id="get-time" py-click="my_gen_function"  class="py-button">Generate</button>-->
      <button id="get-time" py-click="my_gen_function">Generate</button>
 
-
-      <div id="test-output">
-         
+  <div class="window">
+        <div class="title-bar">
+          <div class="title-bar-text">Command Prompt</div>
+          <div class="title-bar-controls">
+            <button aria-label="Minimize"></button>
+            <button aria-label="Maximize"></button>
+            <button aria-label="Close"></button>
+          </div>
+        </div>
+        <div class="window-body">
+          <pre>Microsoft&#10094;R&#10095; Windows DOS 
+      &#10094;C&#10095; Copyright Microsoft Corp 1990-2001.
+            <br>C:&#92;WINDOWS&#92;SYSTEM32> <div id="test-output"></div>
+          </pre>
+        </div>
       </div>
+        
         <section class="pyscript"> 
             <div id="mpl"></div>
 
@@ -261,7 +274,7 @@
                             text3 = str( the_pred )
                         accum_res = "*******************\n" + "Predicted Class: " + text1 + "___"  + text3 + "\n"
                         ## pydom['mpl'].content =  accum_res
-                        pydom["div#mpl"].html = accum_res
+                        pydom["div#test-output"].html = accum_res
                     
  
                 </script>

@@ -5,7 +5,7 @@
         <meta charset="utf-8" />
         <!--   <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />    -->
         <!--     <script defer src="https://pyscript.net/latest/pyscript.js"></script>     -->
-       <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+        <link rel="stylesheet" href="./styles/XP.css" />
         <!-- CSS for examples -->
         <script>await pyodide.loadPackage("pandas")</script>
          <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
@@ -13,155 +13,180 @@
     </head>
 
     <body>
-    <div>Input your data here: </div>
+
+        <div class="window">
+  <div class="title-bar">
+    <div class="title-bar-text">Input your data here:</div>
+    <div class="title-bar-controls">
+      <button aria-label="Minimize"></button>
+      <button aria-label="Maximize"></button>
+      <button aria-label="Close"></button>
+    </div>
+  </div>
+  <div class="window-body">
     <table>
-     <tr>
-     <td>x1 </td>
-     <td> 
-         <select id ="Input1">
-            <option value="1">1</option>
-            <option value="0">0</option>
-         </select>
-    </td>
-
-     <td> x2 </td>
-     <td> 
-        <select id ="Input2">
-            <option value="1">1</option>
-            <option value="0">0</option>
-         </select>
-     </td>
-
-     <td> x3 </td>
-     <td> 
-        <select id ="Input3">
-            <option value="1">1</option>
-            <option value="0">0</option>
-         </select>
-     </td>
-
-     <td> x4 </td>
-     <td> 
-        <select id ="Input4">
-            <option value="1">1</option>
-            <option value="0">0</option>
-         </select>
-     </td>
-     </tr>
-
-     <tr>
-     <td> x5 </td>
-     <td> 
-        <select id ="Input5">
-            <option value="1">1</option>
-            <option value="0">0</option>
-         </select>
-     </td>
-
-     <td> x6 </td>
-     <td> 
-        <select id ="Input6">
-            <option value="1">1</option>
-            <option value="0">0</option>
-         </select>
-     </td>
-
-     <td> x7 </td>
-     <td> 
-        <select id ="Input7">
-            <option value="1">1</option>
-            <option value="0">0</option>
-         </select>
-     </td>
-
-     <td> x8 </td>
-     <td> 
-        <select id ="Input8">
-            <option value="1">1</option>
-            <option value="0">0</option>
-         </select>
-     </td>
-     </tr>
-
-     <tr>
-     <td> x9 </td>
-     <td> 
-        <select id ="Input9">
-            <option value="1">1</option>
-            <option value="0">0</option>
-         </select>
-     </td>
-
-     <td> x10 </td>
-     <td> 
-        <select id ="Input10">
-            <option value="1">1</option>
-            <option value="0">0</option>
-         </select>
-     </td>
-
-     <td> x11 </td>
-     <td> 
-        <select id ="Input11">
-            <option value="1">1</option>
-            <option value="0">0</option>
-         </select>
-     </td>
-
-     <td> x12 </td>
-     <td> 
-        <select id ="Input12">
-            <option value="1">1</option>
-            <option value="0">0</option>
-         </select>
-     </td>
-     </tr>
-
-     <tr>
-     <td> x13 </td>
-     <td> 
-        <select id ="Input13">
-            <option value="1">1</option>
-            <option value="0">0</option>
-         </select>
-     </td>
-
-     <td> x14 </td>
-     <td> 
-        <select id ="Input14">
-            <option value="1">1</option>
-            <option value="0">0</option>
-         </select>
-     </td>
-
-     <td> x15 </td>
-     <td> 
-        <select id ="Input15">
-            <option value="1">1</option>
-            <option value="0">0</option>
-         </select>
-     </td>
-
-     <td> x16 </td>
-     <td> 
-        <select id ="Input16">
-            <option value="1">1</option>
-            <option value="0">0</option>
-         </select>
-     </td>
-
-
-     
-
-     </tr>
-     </table>
+        <tr>
+        <td>x1 </td>
+        <td> 
+            <select id ="Input1">
+               <option value="1">1</option>
+               <option value="0">0</option>
+            </select>
+       </td>
+   
+        <td> x2 </td>
+        <td> 
+           <select id ="Input2">
+               <option value="1">1</option>
+               <option value="0">0</option>
+            </select>
+        </td>
+   
+        <td> x3 </td>
+        <td> 
+           <select id ="Input3">
+               <option value="1">1</option>
+               <option value="0">0</option>
+            </select>
+        </td>
+   
+        <td> x4 </td>
+        <td> 
+           <select id ="Input4">
+               <option value="1">1</option>
+               <option value="0">0</option>
+            </select>
+        </td>
+        </tr>
+   
+        <tr>
+        <td> x5 </td>
+        <td> 
+           <select id ="Input5">
+               <option value="1">1</option>
+               <option value="0">0</option>
+            </select>
+        </td>
+   
+        <td> x6 </td>
+        <td> 
+           <select id ="Input6">
+               <option value="1">1</option>
+               <option value="0">0</option>
+            </select>
+        </td>
+   
+        <td> x7 </td>
+        <td> 
+           <select id ="Input7">
+               <option value="1">1</option>
+               <option value="0">0</option>
+            </select>
+        </td>
+   
+        <td> x8 </td>
+        <td> 
+           <select id ="Input8">
+               <option value="1">1</option>
+               <option value="0">0</option>
+            </select>
+        </td>
+        </tr>
+   
+        <tr>
+        <td> x9 </td>
+        <td> 
+           <select id ="Input9">
+               <option value="1">1</option>
+               <option value="0">0</option>
+            </select>
+        </td>
+   
+        <td> x10 </td>
+        <td> 
+           <select id ="Input10">
+               <option value="1">1</option>
+               <option value="0">0</option>
+            </select>
+        </td>
+   
+        <td> x11 </td>
+        <td> 
+           <select id ="Input11">
+               <option value="1">1</option>
+               <option value="0">0</option>
+            </select>
+        </td>
+   
+        <td> x12 </td>
+        <td> 
+           <select id ="Input12">
+               <option value="1">1</option>
+               <option value="0">0</option>
+            </select>
+        </td>
+        </tr>
+   
+        <tr>
+        <td> x13 </td>
+        <td> 
+           <select id ="Input13">
+               <option value="1">1</option>
+               <option value="0">0</option>
+            </select>
+        </td>
+   
+        <td> x14 </td>
+        <td> 
+           <select id ="Input14">
+               <option value="1">1</option>
+               <option value="0">0</option>
+            </select>
+        </td>
+   
+        <td> x15 </td>
+        <td> 
+           <select id ="Input15">
+               <option value="1">1</option>
+               <option value="0">0</option>
+            </select>
+        </td>
+   
+        <td> x16 </td>
+        <td> 
+           <select id ="Input16">
+               <option value="1">1</option>
+               <option value="0">0</option>
+            </select>
+        </td>
+        </tr>
+        </table>
+  </div>
+</div>
+    
         
      <!--<button id="get-time" py-click="my_gen_function"  class="py-button">Generate</button>-->
      <button id="get-time" py-click="my_gen_function">Generate</button>
 
-     <div id="test-output">
+
+     <div class="window">
+        <div class="title-bar">
+          <div class="title-bar-text">Command Prompt</div>
+          <div class="title-bar-controls">
+            <button aria-label="Minimize"></button>
+            <button aria-label="Maximize"></button>
+            <button aria-label="Close"></button>
+          </div>
+        </div>
+        <div class="window-body">
+          <pre>Microsoft&#10094;R&#10095; Windows DOS 
+      &#10094;C&#10095; Copyright Microsoft Corp 1990-2001.
+            <br>C:&#92;WINDOWS&#92;SYSTEM32>    <div id="test-output">
          
-     </div>
+            </div>
+          </pre>
+        </div>
+      </div>
 
         <section class="pyscript"> 
             <div id="mpl"></div>
